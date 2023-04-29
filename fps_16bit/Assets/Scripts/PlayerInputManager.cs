@@ -14,27 +14,37 @@ namespace fps_16bit
         public Vector2 Move { get; private set; }
         public Vector2 Look { get; private set; }
         public bool Sprint { get; private set; }
+        public bool Jump { get; private set; }
+        public bool Crouch { get; private set; }
 
-        private InputActionMap _currentMap;
-        private InputAction _moveAction;
-        private InputAction _lookAction;
+        private InputActionMap currentMapAction;
+        private InputAction moveAction;
+        private InputAction lookAction;
         private InputAction sprintAction;
+        private InputAction jumpAction;
+        private InputAction crouchAction;
 
         private void Awake()
         {
             HideCursor();
-            _currentMap = PlayerInput.currentActionMap;
-            _moveAction = _currentMap.FindAction("Move");
-            _lookAction = _currentMap.FindAction("Look");
-            sprintAction = _currentMap.FindAction("Sprint");
+            currentMapAction = PlayerInput.currentActionMap;
+            moveAction = currentMapAction.FindAction("Move");
+            lookAction = currentMapAction.FindAction("Look");
+            sprintAction = currentMapAction.FindAction("Sprint");
+            jumpAction = currentMapAction.FindAction("Jump");
+            crouchAction = currentMapAction.FindAction("Crouch");
 
-            _moveAction.performed += onMove;
-            _lookAction.performed += onLook;
+            moveAction.performed += onMove;
+            lookAction.performed += onLook;
             sprintAction.performed += onSprint;
-            
-            _moveAction.canceled += onMove;
-            _lookAction.canceled += onLook;
+            jumpAction.performed += onJump;
+            crouchAction.started += onCrouch;
+
+            moveAction.canceled += onMove;
+            lookAction.canceled += onLook;
             sprintAction.canceled += onSprint;
+            jumpAction.canceled += onJump;
+            crouchAction.canceled += onCrouch;
         }
 
         private void onMove(InputAction.CallbackContext context)
@@ -49,7 +59,14 @@ namespace fps_16bit
         {
             Sprint = context.ReadValueAsButton();
         }
-
+        private void onJump(InputAction.CallbackContext context)
+        {
+            Jump = context.ReadValueAsButton();
+        }
+        private void onCrouch(InputAction.CallbackContext context)
+        {
+            Crouch = context.ReadValueAsButton();
+        }
         private void HideCursor()
         {
             Cursor.visible = false;
@@ -58,12 +75,12 @@ namespace fps_16bit
 
         private void OnEnable()
         {
-            _currentMap.Enable();
+            currentMapAction.Enable();
         }
 
         private void OnDisable()
         {
-            _currentMap.Disable();
+            currentMapAction.Disable();
         }
 
     }
