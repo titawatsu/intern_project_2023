@@ -864,6 +864,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
         type: 3}
+      propertyPath: thisToGround
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
       propertyPath: MouseSensitivity
       value: 50
       objectReference: {fileID: 0}
@@ -3678,7 +3683,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-289262
+  m_Name: pb_Mesh28096
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
