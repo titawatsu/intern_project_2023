@@ -17,8 +17,8 @@ namespace fps_16bit
         [SerializeField] private Transform CameraRoot; // player camera position
 
         [SerializeField] private float UpperLimit = -60f;
-        [SerializeField] private float BottomLimit = 50f;
-        [SerializeField] private float MouseSensitivity = 60.0f;
+        [SerializeField] private float BottomLimit = 60f;
+        [SerializeField] private float MouseSensitivity = 50.0f;
         #endregion
 
         private Animator anim;
