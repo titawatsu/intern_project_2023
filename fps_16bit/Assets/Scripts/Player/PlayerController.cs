@@ -21,6 +21,8 @@ namespace fps_16bit
         [SerializeField] private float MouseSensitivity = 50.0f;
         #endregion
 
+        #region MOVE_ANIMATION
+        
         private Animator anim;
         private bool checkAnimator;
         private float AnimChangeSpeed = 8.9f;
@@ -28,6 +30,9 @@ namespace fps_16bit
         private int xVelHash;
         private int yVelHash;
         private float xRotation;
+        
+        #endregion
+        
         private Vector2 currentVelocity;
 
         [SerializeField] private float playerToGround = 0.8f;
@@ -56,7 +61,9 @@ namespace fps_16bit
 
         [SerializeField] private float stepHeight = 0.3f; 
         [SerializeField] private float stepDamp = 0.1f;
-
+        
+        #region START_AWAKE_UPDATE_FUNCTION
+        
         private void Awake()
         {
             playerRb = GetComponent<Rigidbody>();
@@ -92,7 +99,8 @@ namespace fps_16bit
         {
             MovementCheck();
         }
-
+        #endregion
+        
         private void MovementCheck()
         {
             if (!checkAnimator) return;
@@ -101,11 +109,11 @@ namespace fps_16bit
             var Mouse_Y = inputManager.Look.y;
             Camera.position = CameraRoot.position;
 
-
             xRotation -= Mouse_Y * MouseSensitivity * Time.smoothDeltaTime;
             xRotation = Mathf.Clamp(xRotation, UpperLimit, BottomLimit);
 
             Camera.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            
             playerRb.MoveRotation(playerRb.rotation * Quaternion.Euler(0, Mouse_X * MouseSensitivity * Time.smoothDeltaTime, 0));
         }
 

@@ -2250,6 +2250,7 @@ MonoBehaviour:
   stepUpperRay: {fileID: 8178835224817266145}
   stepHeight: 0.3
   stepDamp: 0.1
+  gunHolder: {fileID: 0}
 --- !u!114 &-6092701041112075214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2262,6 +2263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95830992a2104554aa90c27ba43e6c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  inventoryManager: {fileID: 0}
   pickableLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -2751,8 +2754,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
