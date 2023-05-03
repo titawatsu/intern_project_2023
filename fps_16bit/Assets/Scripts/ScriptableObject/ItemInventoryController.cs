@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemInventoryController : MonoBehaviour
 {
-    public Buttom RemoveButton;
+    public Button RemoveButton;
     
     Item item;
 
@@ -13,7 +13,11 @@ public class ItemInventoryController : MonoBehaviour
     {
         InventoryManager.Instance.Remove(item);
     }
+
     public void AddItem(Item newItem)
+    {
+        item = newItem;
+    }
     
     
 }
