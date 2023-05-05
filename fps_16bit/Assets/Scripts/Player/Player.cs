@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class Player : MonoBehaviour
 {
     public static Player instance;
@@ -17,10 +17,15 @@ public class Player : MonoBehaviour
         instance = this;
     }
 
+    private void LateUpdate()
+    {
+        playerHealthText.text = $"HP:{playerHealth}";
+    }
+
     public void IncreaseHealth(int value)
     {
         playerHealth += value;
-        playerHealthText.text = $"HP:{playerHealth}";
+        
     }
     
 }

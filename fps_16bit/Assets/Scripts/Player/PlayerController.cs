@@ -17,7 +17,7 @@ namespace fps_16bit
         [SerializeField] private Transform CameraRoot; // player camera position
 
         [SerializeField] private float UpperLimit = -60f;
-        [SerializeField] private float BottomLimit = 60f;
+        [SerializeField] private float BottomLimit = 30f;
         [SerializeField] private float MouseSensitivity = 50.0f;
         #endregion
 
@@ -97,11 +97,11 @@ namespace fps_16bit
         }
         private void LateUpdate()
         {
-            MovementCheck();
+            CameraMovement();
         }
         #endregion
         
-        private void MovementCheck()
+        private void CameraMovement()
         {
             if (!checkAnimator) return;
 

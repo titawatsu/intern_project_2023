@@ -16,7 +16,6 @@ namespace fps_16bit
         public bool Sprint { get; private set; }
         public bool Jump { get; private set; }
         public bool Crouch { get; private set; }
-        public bool Interact { get; private set; }
 
         private InputActionMap currentMapAction;
         private InputAction moveAction;
@@ -24,7 +23,6 @@ namespace fps_16bit
         private InputAction sprintAction;
         private InputAction jumpAction;
         private InputAction crouchAction;
-        private InputAction interactAction;
 
         private void Awake()
         {
@@ -35,21 +33,20 @@ namespace fps_16bit
             sprintAction = currentMapAction.FindAction("Sprint");
             jumpAction = currentMapAction.FindAction("Jump");
             crouchAction = currentMapAction.FindAction("Crouch");
-            interactAction = currentMapAction.FindAction("Interact");
+            
 
             moveAction.performed += onMove;
             lookAction.performed += onLook;
             sprintAction.performed += onSprint;
             jumpAction.performed += onJump;
             crouchAction.started += onCrouch;
-            interactAction.started += onInteract;
-
+            
             moveAction.canceled += onMove;
             lookAction.canceled += onLook;
             sprintAction.canceled += onSprint;
             jumpAction.canceled += onJump;
             crouchAction.canceled += onCrouch;
-            interactAction.canceled += onInteract;
+            
         }
 
         private void onMove(InputAction.CallbackContext context)
@@ -72,10 +69,7 @@ namespace fps_16bit
         {
             Crouch = context.ReadValueAsButton();
         }
-        private void onInteract(InputAction.CallbackContext context)
-        {
-            Interact = context.ReadValueAsButton();
-        }
+        
         private void HideCursor()
         {
             Cursor.visible = false;
