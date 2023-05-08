@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class OptionController : MonoBehaviour
 {
-    public Toggle fullscreenToggle, v_syncToggle;
+    public Toggle fullscreenToggle;
+    [FormerlySerializedAs("v_syncToggle")] public Toggle vSyncToggle;
 
     public List<ResolutionList> resolutions = new List<ResolutionList>();
 
@@ -17,8 +19,8 @@ public class OptionController : MonoBehaviour
     private void Start()
     {
         fullscreenToggle.isOn = Screen.fullScreen;
-        if (QualitySettings.vSyncCount == 0) v_syncToggle.isOn = false;
-        else v_syncToggle.isOn = true;
+        if (QualitySettings.vSyncCount == 0) vSyncToggle.isOn = false;
+        else vSyncToggle.isOn = true;
 
         bool foundRes = false;
 
@@ -55,7 +57,7 @@ public class OptionController : MonoBehaviour
     private void ApplyGraphics()
     {
         Screen.fullScreen = fullscreenToggle.isOn;
-        if (v_syncToggle.isOn) QualitySettings.vSyncCount = 1;
+        if (vSyncToggle.isOn) QualitySettings.vSyncCount = 1;
         else QualitySettings.vSyncCount = 0;
         
         Screen.SetResolution(resolutions[selectedResolution].horizontalSize, resolutions[selectedResolution].verticalSize, fullscreenToggle.isOn);
