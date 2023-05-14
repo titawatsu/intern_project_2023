@@ -62,6 +62,7 @@ MonoBehaviour:
   gotKey: 0
   keyGameObject: {fileID: 0}
   txtToDisplay: {fileID: 0}
+  doorAction: {fileID: 0}
 --- !u!1 &8130921515360841344
 GameObject:
   m_ObjectHideFlags: 0

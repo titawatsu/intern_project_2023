@@ -10,7 +10,9 @@ public class DoorManager : MonoBehaviour
     public bool gotKey;                 
     public GameObject keyGameObject; //If player has Key,  assign it here
     
-    public Text txtToDisplay;             
+    public Text txtToDisplay;
+
+    public DoorState State { get; internal set; }
 
     private bool playerInZone;                  //Check if the player is in the zone
     private bool doorOpened;                    //Check if door is currently opened or not
@@ -20,7 +22,7 @@ public class DoorManager : MonoBehaviour
     
     public InputActionReference doorAction;
 
-    enum DoorState
+    public enum DoorState
     {
         Closed,
         Opened,
