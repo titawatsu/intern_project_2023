@@ -2104,6 +2104,7 @@ GameObject:
   - component: {fileID: 8045630866309915948}
   - component: {fileID: -6092701041112075214}
   - component: {fileID: -4966534553617690138}
+  - component: {fileID: 4505581312012901381}
   m_Layer: 0
   m_Name: Player_notmash_backup
   m_TagString: Player
@@ -2288,6 +2289,22 @@ MonoBehaviour:
   playerHealth: 100
   playerHealthText: {fileID: 0}
   gasAmount: 0
+--- !u!114 &4505581312012901381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162618367765846139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b02208dc0fb724e8ebe10fa502b5ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashlightActionReference: {fileID: 9170982287247454043, guid: 7aaae3c48bd99f64781c3111166f82b5,
+    type: 3}
+  flashlightObject: {fileID: 7504977820194042132}
+  isFlashlightOn: 0
 --- !u!1 &7190332985707068920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,11 +2543,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4
+  m_Color: {r: 0.7001306, g: 1, b: 0.4292453, a: 1}
+  m_Intensity: 3
   m_Range: 15
-  m_SpotAngle: 31
-  m_InnerSpotAngle: 21.03436
+  m_SpotAngle: 70
+  m_InnerSpotAngle: 10
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -2610,8 +2627,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  flashlightInteraction: {fileID: 9170982287247454043, guid: 7aaae3c48bd99f64781c3111166f82b5,
-    type: 3}
 --- !u!1 &7526240622941108913
 GameObject:
   m_ObjectHideFlags: 0
