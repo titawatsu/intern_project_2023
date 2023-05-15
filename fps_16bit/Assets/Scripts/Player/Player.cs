@@ -12,6 +12,13 @@ public class Player : MonoBehaviour
 
     public Text playerHealthText;
 
+    public int gasAmount = 0;
+
+    private void Start()
+    {
+        gasAmount = 0;
+    }
+
     private void Awake()
     {
         instance = this;
@@ -26,6 +33,11 @@ public class Player : MonoBehaviour
     {
         playerHealth += value;
         
+    }
+
+    public void IncreaseGasAmount(int value)
+    {
+        gasAmount += value;
     }
     
 }

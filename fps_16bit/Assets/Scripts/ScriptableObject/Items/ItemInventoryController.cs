@@ -14,7 +14,8 @@ public class ItemInventoryController : MonoBehaviour
                 Debug.Log("Increase Health by" + item.value);
                 Player.instance.IncreaseHealth(item.value);
                 break;
-            case Item.ItemType.Ammo:
+            case Item.ItemType.GasCan:
+                Player.instance.IncreaseGasAmount(item.value);
                 break;
             case Item.ItemType.Grenade:
                 break;
