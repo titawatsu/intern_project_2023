@@ -8,7 +8,7 @@ public class Item : ScriptableObject
     {
         MedKit,
         GasCan,
-        Grenade
+        Battery
     }
     
     public int id;

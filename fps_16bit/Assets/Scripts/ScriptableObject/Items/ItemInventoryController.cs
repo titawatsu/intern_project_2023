@@ -17,7 +17,7 @@ public class ItemInventoryController : MonoBehaviour
             case Item.ItemType.GasCan:
                 Player.instance.IncreaseGasAmount(item.value);
                 break;
-            case Item.ItemType.Grenade:
+            case Item.ItemType.Battery:
                 break;
         }
     }
