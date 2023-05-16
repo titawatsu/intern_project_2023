@@ -16,6 +16,8 @@ public class GeneratorTrigger : MonoBehaviour
     public bool playerInzone;
 
     public InputActionReference interactionAction;
+
+    public Animator elevatorAnim;
     
     private void OnEnable()
     {
@@ -36,9 +38,16 @@ public class GeneratorTrigger : MonoBehaviour
 
     private void Update()
     {
+
         gasAmountPlayer = Player.instance.gasAmount;
         
         generatorText.GetComponent<Text>().text = "Jerry Can " + gasAmountPlayer + "/" + gasAmountNeed;
+
+        if (gasAmountPlayer >= gasAmountNeed)
+        {
+            generatorText.GetComponent<Text>().text = "Pour gasoline on generator";
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,9 +65,12 @@ public class GeneratorTrigger : MonoBehaviour
 
     private void GenEventInteraction(InputAction.CallbackContext context)
     {
+
+        if (gasAmountPlayer < gasAmountNeed) return;
+
         if (playerInzone)
         {
-            
+            elevatorAnim.SetBool("open", true);
         }
     }
     

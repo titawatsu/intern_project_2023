@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 
     public int gasAmount = 0;
 
+    public bool getFlashlight = false;
     private void Start()
     {
         gasAmount = 0;

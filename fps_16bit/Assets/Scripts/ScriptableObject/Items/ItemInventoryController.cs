@@ -19,6 +19,9 @@ public class ItemInventoryController : MonoBehaviour
                 break;
             case Item.ItemType.Battery:
                 break;
+            case Item.ItemType.Flashlight:
+                Player.instance.getFlashlight = true;
+                break;
         }
     }
 }
