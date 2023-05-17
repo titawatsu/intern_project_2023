@@ -2289,6 +2289,7 @@ MonoBehaviour:
   playerHealth: 100
   playerHealthText: {fileID: 0}
   gasAmount: 0
+  getFlashlight: 0
 --- !u!114 &4505581312012901381
 MonoBehaviour:
   m_ObjectHideFlags: 0
