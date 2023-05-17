@@ -9,8 +9,8 @@ namespace fps_16bit
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
-        public PauseController pauseController;
-        public GameObject GameOverUi;
+        //public PauseController pauseController;
+        //public GameObject GameOverUi;
 
         #region START_UPDATE
         private void Start()
@@ -26,10 +26,11 @@ namespace fps_16bit
 
         }
         #endregion
+        
         private void SetGameResume()
         {
-            pauseController.ResumeGame(); //For making Time.timeScale = 1f;
-            GameOverUi.SetActive(false);
+            //pauseController.ResumeGame(); //For making Time.timeScale = 1f;
+            //GameOverUi.SetActive(false);
         }
 
         public void LoadLevel(int levelIndex)
@@ -58,9 +59,9 @@ namespace fps_16bit
 
         public void ProcessPlayerDeath()
         {
-            GameOver();
+            //GameOver();
         }
-
+        /*
         private void GameOver()
         {
 
@@ -73,7 +74,7 @@ namespace fps_16bit
             GameOverUi.SetActive(true);
 
         }
-
+        */
     }
 }
 
