@@ -17,10 +17,10 @@ TagManager:
   - Pickup
   - Weapon
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - PlayerAttackRadius
+  - Enemy
+  - EnemyAttackRadius
   - 
   - 
   - 

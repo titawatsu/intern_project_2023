@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     private void StartButton()
     {
         Time.timeScale = 1f; //to force running game at default timescale, for debug pause game - in-game time scale bug
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("World_1");
     }
 
     private void ExitButton()

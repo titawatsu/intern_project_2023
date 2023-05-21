@@ -15,6 +15,14 @@ public class Player : MonoBehaviour
     public int gasAmount = 0;
 
     public bool getFlashlight = false;
+
+    [SerializeField]
+    private AttackRadius AttackRadius;
+
+    private Coroutine LookCoroutine;
+
+    private const string ATTACK_TRIGGER = "Attack";
+
     private void Start()
     {
         gasAmount = 0;
@@ -23,6 +31,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        AttackRadius.OnAttack += OnAttack;
     }
 
     private void LateUpdate()
@@ -40,5 +50,47 @@ public class Player : MonoBehaviour
     {
         gasAmount += value;
     }
-    
+
+    private void OnAttack(IDamageable Target)
+    {
+        
+
+        if (LookCoroutine != null)
+        {
+            StopCoroutine(LookCoroutine);
+        }
+
+        LookCoroutine = StartCoroutine(LookAt(Target.GetTransform()));
+    }
+
+    private IEnumerator LookAt(Transform Target)
+    {
+        Quaternion lookRotation = Quaternion.LookRotation(Target.position - transform.position);
+        float time = 0;
+
+        while (time < 1)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
+
+            time += Time.deltaTime * 2;
+            yield return null;
+        }
+
+        transform.rotation = lookRotation;
+    }
+
+    public void TakeDamage(int Damage)
+    {
+        playerHealth -= Damage;
+
+        if (playerHealth <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
 }

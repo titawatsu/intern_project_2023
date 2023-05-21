@@ -14,28 +14,22 @@ namespace fps_16bit
 
         public static bool paused = false;
 
-        public InputActionReference pausedButton;
+        public InputManager inputManager;
 
 
-        private void OnEnable()
+        private void Awake()
         {
-            pausedButton.action.Enable();
-            pausedButton.action.performed += PauseHandler;
+            inputManager = new InputManager();
+
         }
 
-        private void OnDisable()
-        {
-            pausedButton.action.Disable();
-            pausedButton.action.performed -= PauseHandler;
-        }
+        private void OnEnable() => inputManager.Enable();
 
-        private void PauseHandler(InputAction.CallbackContext context)
-        {
-            PauseGame();
-        }
+        private void OnDisable() => inputManager.Disable();
 
         private void Start()
         {
+            inputManager.UserInterface.Pause.performed += _ => DeterminePause(); // for check pause/ resume statement.
             ResumeGame();
         }
 
@@ -49,6 +43,8 @@ namespace fps_16bit
 
         public void PauseGame()
         {
+            Cursor.lockState = CursorLockMode.Confined;
+
             Time.timeScale = 0f;
             bgSound.Pause();
             paused = true;
@@ -59,6 +55,8 @@ namespace fps_16bit
 
         public void ResumeGame()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+
             Time.timeScale = 1f;
             bgSound.UnPause();
             paused = false;
@@ -68,6 +66,7 @@ namespace fps_16bit
         }
 
         public void GotoMainmenuButton() => gameManager.LoadLevel(0); // load main menu level 
+
 
     }
 }

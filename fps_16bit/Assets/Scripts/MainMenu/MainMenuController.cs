@@ -15,6 +15,11 @@ public class MainMenuController : MonoBehaviour
     public void Start()
     {
         AudioListener.pause = false;
+        Cursor.lockState = CursorLockMode.None;
+
+        anim = GetComponent<Animator>();
+
+        anim.SetTrigger("FadeOut");
     }
 
     public void StartGame()
