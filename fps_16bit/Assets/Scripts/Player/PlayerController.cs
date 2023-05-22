@@ -18,7 +18,8 @@ namespace fps_16bit
 
         [SerializeField] private float UpperLimit = -60f;
         [SerializeField] private float BottomLimit = 30f;
-        [SerializeField] private float MouseSensitivity = 50.0f;
+        [SerializeField] public float mouseSensitivity;
+        public const string mouseSens = "mouseSens";
         #endregion
 
         #region MOVE_ANIMATION
@@ -86,6 +87,8 @@ namespace fps_16bit
             groundHash = Animator.StringToHash("Grounded");
             fallingHash = Animator.StringToHash("Falling");
             crouchHash = Animator.StringToHash("Crouch");
+
+            LoadOptionData();
         }
 
         private void FixedUpdate()
@@ -100,6 +103,13 @@ namespace fps_16bit
             CameraMovement();
         }
         #endregion
+
+        private void LoadOptionData()
+        {
+            float sens = PlayerPrefs.GetFloat(mouseSens,10f);
+
+            mouseSensitivity = sens * 100;
+        }
         
         private void CameraMovement()
         {
@@ -109,12 +119,12 @@ namespace fps_16bit
             var Mouse_Y = inputManager.Look.y;
             Camera.position = CameraRoot.position;
 
-            xRotation -= Mouse_Y * MouseSensitivity * Time.smoothDeltaTime;
+            xRotation -= Mouse_Y * mouseSensitivity * Time.smoothDeltaTime;
             xRotation = Mathf.Clamp(xRotation, UpperLimit, BottomLimit);
 
             Camera.localRotation = Quaternion.Euler(xRotation, 0, 0);
             
-            playerRb.MoveRotation(playerRb.rotation * Quaternion.Euler(0, Mouse_X * MouseSensitivity * Time.smoothDeltaTime, 0));
+            playerRb.MoveRotation(playerRb.rotation * Quaternion.Euler(0, Mouse_X * mouseSensitivity * Time.smoothDeltaTime, 0));
         }
 
         private void MoveHandler()

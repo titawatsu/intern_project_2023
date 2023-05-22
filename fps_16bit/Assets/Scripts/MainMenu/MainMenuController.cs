@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    private const string FirstLevel = "World_1";
-
     private String levelToLoad;
     
     public Animator anim;
@@ -26,7 +24,7 @@ public class MainMenuController : MonoBehaviour
     {
         Time.timeScale = 1f; //force running game at default timescale, for debug pause game - in-game time scale bug
 
-        FadeToLevel(FirstLevel);
+        FadeToLevel(1);
     }
 
     public void ExitGame()
@@ -38,14 +36,20 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
     }
 
-    public void FadeToLevel(string level)
+    public void FadeToLevel(int level)
     {
-        levelToLoad = level;
+        
         anim.SetTrigger("FadeOut");
+        LoadLevel(1);
     }
 
     public void OnFadeComplete()
     {
-        SceneManager.LoadScene(levelToLoad);
+        LoadLevel(1);
+    }
+    
+    public void LoadLevel(int levelIndex)
+    {
+        SceneManager.LoadScene(levelIndex);
     }
 }
