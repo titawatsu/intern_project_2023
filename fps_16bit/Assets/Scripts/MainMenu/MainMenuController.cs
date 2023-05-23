@@ -40,15 +40,15 @@ public class MainMenuController : MonoBehaviour
     {
         
         anim.SetTrigger("FadeOut");
-        LoadLevel(1);
+        LoadToLevel(1);
     }
 
     public void OnFadeComplete()
     {
-        LoadLevel(1);
+        LoadToLevel(1);
     }
     
-    public void LoadLevel(int levelIndex)
+    public void LoadToLevel(int levelIndex)
     {
         SceneManager.LoadScene(levelIndex);
     }

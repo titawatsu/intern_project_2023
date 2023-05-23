@@ -2288,7 +2288,7 @@ MonoBehaviour:
   CameraRoot: {fileID: 8045630865579189096}
   UpperLimit: -60
   BottomLimit: 70
-  MouseSensitivity: 70
+  mouseSensitivity: 0
   playerToGround: 0.8
   AirResistance: 0.8
   GroundCheck:
@@ -2338,7 +2338,6 @@ MonoBehaviour:
   gasAmount: 0
   getFlashlight: 0
   AttackRadius: {fileID: 0}
-  Animator: {fileID: 0}
 --- !u!114 &4505581312012901381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2999,7 +2998,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
