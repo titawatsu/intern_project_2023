@@ -975,25 +975,7 @@ MonoBehaviour:
   terrains:
   - {fileID: 81330448}
   visibleTerrainsOnly: 0
-  treeTypes:
-  - enabled: 1
-    name: PF Jatoba LOD Group URP
-    seed: 2373
-    probability: 10
-    collisionCheck: 0
-    rejectUnderwater: 0
-    heightRange: {x: 0, y: 1000}
-    slopeRange: {x: 0, y: 60}
-    curvatureRange: {x: 0, y: 1}
-    layerMasks: []
-    instanceCount: 471
-    prefabs:
-    - index: 0
-      probability: 100
-      prefab: {fileID: 138394, guid: 709333b5c7078b54c9169b329c7e3889, type: 3}
-    distance: 5
-    scaleRange: {x: 0.8, y: 1.2}
-    sinkAmount: 0
+  treeTypes: []
   grassPrefabs: []
   terrainSettings:
     drawTreesAndFoliage: 1
