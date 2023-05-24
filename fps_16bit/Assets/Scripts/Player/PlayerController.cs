@@ -63,6 +63,21 @@ namespace fps_16bit
         [SerializeField] private float stepHeight = 0.3f; 
         [SerializeField] private float stepDamp = 0.1f;
         
+        #region FootStepAudio
+
+        [SerializeField] private float baseStepSpeed = 0.5f;
+        [SerializeField] private float crouchStepMultipler = 1.5f;
+        [SerializeField] private float sprintStepMultipler = 0.6f;
+        [SerializeField] private AudioSource footStepAudioSource = default;
+        [SerializeField] private AudioClip[] dirtClips = default;  
+        [SerializeField] private AudioClip[] concreateClips = default;  
+        [SerializeField] private AudioClip[] roadClips = default;
+        private float footstepTimer = 0;
+        private float GetCurrentOffset => inputManager.Crouch ? baseStepSpeed * crouchStepMultipler : inputManager.Sprint ? baseStepSpeed * sprintStepMultipler : baseStepSpeed; 
+
+        #endregion
+        
+        
         #region START_AWAKE_UPDATE_FUNCTION
         
         private void Awake()
@@ -241,6 +256,31 @@ namespace fps_16bit
         {
             anim.SetBool(fallingHash, !grounded);
             anim.SetBool(groundHash, grounded);
+        }
+
+        private void HandleFootstep()
+        {
+            if (!grounded) return;
+            if (Mathf.Approximately(playerRb.velocity.magnitude, 0)) return;
+
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0)
+            {
+                if (Physics.Raycast(Camera.transform.position, Vector3.down, out RaycastHit hit, 3))
+                {
+                    switch (hit.collider.tag)
+                    {
+                        case "Footsteps/grass":
+                            break;
+                        case "Footsteps/concrete":
+                            break;
+                        case "Footsteps/road":
+                            break;
+                        default:
+                            break;
+                    } //https://www.youtube.com/watch?v=r1dgRE0GM9A
+                }
+            }
         }
     }
 }

@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 3688747484022860290}
   - component: {fileID: 6985545950981624882}
   - component: {fileID: 6985545950981624885}
+  - component: {fileID: 2765522014970906539}
   m_Layer: 0
   m_Name: Light_Pole
   m_TagString: Untagged
@@ -526,3 +527,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5552791578655592781, guid: 0bf2b2488c7eaf54b9766934a3f9f40d, type: 3}
+--- !u!205 &2765522014970906539
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220003885067691714}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 2
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.9
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.4
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
