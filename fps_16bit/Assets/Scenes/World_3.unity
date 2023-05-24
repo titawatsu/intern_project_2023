@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.027951736, g: 0.021280173, b: 0.013202796, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -361,7 +361,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1840
+  m_Name: pb_Mesh-23550
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -525,7 +525,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1912
+  m_Name: pb_Mesh-23622
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -769,7 +769,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1876
+  m_Name: pb_Mesh-23586
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -975,7 +975,25 @@ MonoBehaviour:
   terrains:
   - {fileID: 81330448}
   visibleTerrainsOnly: 0
-  treeTypes: []
+  treeTypes:
+  - enabled: 1
+    name: PF Jatoba LOD Group URP
+    seed: 14450
+    probability: 25
+    collisionCheck: 1
+    rejectUnderwater: 0
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 66}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks: []
+    instanceCount: 1227
+    prefabs:
+    - index: 0
+      probability: 100
+      prefab: {fileID: 138394, guid: 709333b5c7078b54c9169b329c7e3889, type: 3}
+    distance: 5
+    scaleRange: {x: 0.7, y: 1.7}
+    sinkAmount: 0
   grassPrefabs: []
   terrainSettings:
     drawTreesAndFoliage: 1
@@ -996,7 +1014,7 @@ MonoBehaviour:
   collisionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  terrainMinMaxHeight: {x: -100, y: 2000}
+  terrainMinMaxHeight: {x: 21.1139, y: 140.37778}
   detailResolution: 256
   detailResolutionIndex: 0
   grassPatchSize: 128
@@ -1194,7 +1212,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2002
+  m_Name: pb_Mesh-23712
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1517,7 +1535,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1804
+  m_Name: pb_Mesh-23514
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1893,7 +1911,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1930
+  m_Name: pb_Mesh-23640
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2057,7 +2075,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1822
+  m_Name: pb_Mesh-23532
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2575,7 +2593,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1786
+  m_Name: pb_Mesh-23496
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2739,7 +2757,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1858
+  m_Name: pb_Mesh-23568
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2903,7 +2921,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1948
+  m_Name: pb_Mesh-23658
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3722,14 +3740,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3780,14 +3798,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803967859}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.07494531, y: -0.2580388, z: -0.020081531, w: 0.963014}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: -8.9, y: -30, z: 0}
 --- !u!114 &1803967862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4019,7 +4037,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1894
+  m_Name: pb_Mesh-23604
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
