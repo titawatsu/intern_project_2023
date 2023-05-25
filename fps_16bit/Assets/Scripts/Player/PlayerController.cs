@@ -69,7 +69,7 @@ namespace fps_16bit
         [SerializeField] private float crouchStepMultipler = 1.5f;
         [SerializeField] private float sprintStepMultipler = 0.6f;
         [SerializeField] private AudioSource footStepAudioSource = default;
-        [SerializeField] private AudioClip[] dirtClips = default;  
+        [SerializeField] private AudioClip[] grassClips = default;  
         [SerializeField] private AudioClip[] concreateClips = default;  
         [SerializeField] private AudioClip[] roadClips = default;
         private float footstepTimer = 0;
@@ -106,16 +106,23 @@ namespace fps_16bit
             LoadOptionData();
         }
 
+        private void Update()
+        {
+            HandleFootstep();
+        }
+
         private void FixedUpdate()
         {
             CheckGroundAndCollision();
             MoveHandler();
             JumpHandler();
             CrouchHandle();
+            
         }
         private void LateUpdate()
         {
             CameraMovement();
+            
         }
         #endregion
 
@@ -271,16 +278,21 @@ namespace fps_16bit
                     switch (hit.collider.tag)
                     {
                         case "Footsteps/grass":
+                            footStepAudioSource.PlayOneShot(grassClips[Random.Range(0, grassClips.Length -1)]);
                             break;
                         case "Footsteps/concrete":
+                            footStepAudioSource.PlayOneShot(concreateClips[Random.Range(0, concreateClips.Length - 1)]);
                             break;
                         case "Footsteps/road":
+                            footStepAudioSource.PlayOneShot(roadClips[Random.Range(0, roadClips.Length - 1)]);
                             break;
                         default:
+                            footStepAudioSource.PlayOneShot(concreateClips[Random.Range(0, concreateClips.Length - 1)]);
                             break;
-                    } //https://www.youtube.com/watch?v=r1dgRE0GM9A
+                    } 
                 }
             }
+            footstepTimer = GetCurrentOffset;
         }
     }
 }

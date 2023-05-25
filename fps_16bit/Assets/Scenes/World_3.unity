@@ -108,7 +108,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 50
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 47ba4d0c7c79a7a4dbfd27000e7e3beb, type: 2}
 --- !u!1 &81330446
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 81330447}
   m_Layer: 8
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Footsteps/grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -361,7 +361,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207586
+  m_Name: pb_Mesh-264762
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -525,7 +525,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207658
+  m_Name: pb_Mesh-264834
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -769,7 +769,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207622
+  m_Name: pb_Mesh-264798
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1260,7 +1260,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207748
+  m_Name: pb_Mesh-264924
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1435,6 +1435,22 @@ PrefabInstance:
       propertyPath: playerHealthText
       value: 
       objectReference: {fileID: 1823481996}
+    - target: {fileID: 6821273668415064261, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821273668415064261, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821273668415064261, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3484669881716819553, guid: 9e0420610f647054994fcafc8fec7ac6,
+        type: 2}
     - target: {fileID: 7162618367765846139, guid: a87f46d101046a140803e7c572a47efa,
         type: 3}
       propertyPath: m_Name
@@ -1495,6 +1511,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: roadClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: grassClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: roadClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c87c3a812abe2fc4baa1fe54b4b77172, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: roadClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ee6a6c12e92b76347881600e494ea047, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: roadClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 06438add0bb42f846b7f1e2e0fcb78cb, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: roadClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7dd1b75dd97f9af468c655f59ab900cc, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: grassClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0609acde86b59a2458aaf135531f8756, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: grassClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: fdfa07727ba18e146b0d737f16110ba5, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: grassClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: e988fcf175fd1874db4f82c3b2d75db3, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: grassClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 98e005e2d5100484b88927d0803cb395, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: concreateClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: concreateClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d11813f5983ce047873c94858e6a6c1, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: concreateClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6154d2d90f91ac743a30a16a58f9fa32, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: concreateClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4544cd1f9b0d00a498e3602ecfffcacc, type: 3}
+    - target: {fileID: 8045630866309915948, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
+      propertyPath: concreateClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2921c47b0bdded540b5b813c1e60001c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a87f46d101046a140803e7c572a47efa, type: 3}
 --- !u!1 &637661684 stripped
@@ -1603,7 +1694,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207550
+  m_Name: pb_Mesh-264726
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1979,7 +2070,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207676
+  m_Name: pb_Mesh-264852
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2143,7 +2234,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207568
+  m_Name: pb_Mesh-264744
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2812,7 +2903,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207532
+  m_Name: pb_Mesh-264708
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2976,7 +3067,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207604
+  m_Name: pb_Mesh-264780
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3140,7 +3231,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207694
+  m_Name: pb_Mesh-264870
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4257,7 +4348,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-207640
+  m_Name: pb_Mesh-264816
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
