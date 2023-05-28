@@ -6,8 +6,8 @@ public class EnemyLineOfSight : MonoBehaviour
 {
 
     public float distance = 10;
-    private float angle = 30;
-    private float height = 10;
+    [SerializeField] private float angle = 30;
+    [SerializeField] private float height = 10;
     private Color meshColor = Color.red;
 
     public int scanFrequency = 30;
