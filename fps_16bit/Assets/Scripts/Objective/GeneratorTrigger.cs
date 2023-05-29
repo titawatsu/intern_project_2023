@@ -38,14 +38,14 @@ public class GeneratorTrigger : MonoBehaviour
 
     private void Update()
     {
-
+        
         gasAmountPlayer = Player.instance.gasAmount;
         
         generatorText.GetComponent<Text>().text = "Jerry Can " + gasAmountPlayer + "/" + gasAmountNeed;
 
         if (gasAmountPlayer >= gasAmountNeed)
         {
-            generatorText.GetComponent<Text>().text = "Pour gasoline on generator";
+            generatorText.GetComponent<Text>().text = "Press 'E' Pour gasoline on generator";
         }
 
     }

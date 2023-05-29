@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8875673928793903668}
   - component: {fileID: 7920253325248222353}
   - component: {fileID: 2718602289621390084}
-  - component: {fileID: 2718602289621390087}
+  - component: {fileID: 4679992647903636707}
+  - component: {fileID: 8144388227683855609}
   m_Layer: 0
   m_Name: Light_Pole_2
   m_TagString: Untagged
@@ -86,8 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2718602289621390087
-MeshCollider:
+--- !u!208 &4679992647903636707
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356762985080418664}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 0.05, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.0050000004, z: 0.97}
+  m_TimeToStationary: 0.5
+--- !u!65 &8144388227683855609
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,10 +113,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4746272757553616470, guid: 0bf2b2488c7eaf54b9766934a3f9f40d, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.10269641, y: 0.0882465, z: 2.1420283}
+  m_Center: {x: 0.00430069, y: 0.005381107, z: 1.065268}
 --- !u!1 &4652364793179351227
 GameObject:
   m_ObjectHideFlags: 0

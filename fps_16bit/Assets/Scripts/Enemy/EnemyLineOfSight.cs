@@ -7,13 +7,22 @@ public class EnemyLineOfSight : MonoBehaviour
 
     public float distance = 10;
     [SerializeField] private float angle = 30;
-    [SerializeField] private float height = 10;
+    [SerializeField] private float height = 2;
     private Color meshColor = Color.red;
 
     public int scanFrequency = 30;
     public LayerMask layers;
     public LayerMask occlusionLayers;
-    public List<GameObject> Objects = new List<GameObject>();
+
+    public List<GameObject> Objects
+    {
+        get
+        {
+            objects.RemoveAll(obj => !obj);
+            return objects;
+        }
+    }
+    private List<GameObject> objects = new List<GameObject>();
 
     Collider[] colliders = new Collider[50];
 

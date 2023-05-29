@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     {
         instance = this;
 
-        AttackRadius.OnAttack += OnAttack;
+        //AttackRadius.OnAttack += OnAttack;
     }
 
     private void LateUpdate()

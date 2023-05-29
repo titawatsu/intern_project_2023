@@ -12,11 +12,15 @@ namespace fps_16bit
         public AiStateId initialState;
         public NavMeshAgent navmeshAgent;
         public AiAgentConfig config;
+        public EnemyLineOfSight sensor;
         private void Start()
         {
             navmeshAgent = GetComponent<NavMeshAgent>();
+            sensor = GetComponent<EnemyLineOfSight>();
+            
             aiStateMachine = new AiStateMachine(this);
             aiStateMachine.RegisterState(new AiChasePlayerState());
+            aiStateMachine.RegisterState(new AiPatrollingState());
             aiStateMachine.ChangeState(initialState);
         }
 

@@ -7,7 +7,8 @@ namespace fps_16bit
 {
     public enum AiStateId
     {
-        ChasePlayer
+        ChasePlayer,
+        Patrolling
     }
 
     public interface AiState
