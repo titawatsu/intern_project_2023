@@ -51,7 +51,17 @@ public class EnemyLineOfSight : MonoBehaviour
     {
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layers, QueryTriggerInteraction.Collide);
 
-        Objects.Clear();
+        objects.Clear();
+
+        for (int i =0; i< count; i++)
+        {
+            GameObject obj = colliders[i].gameObject;
+            if (IsInSight(obj))
+            {
+                objects.Add(obj);
+            }
+        }
+        /*
         for (int i = 0; i < count; i++)
         {
             Gizmos.DrawSphere(colliders[i].transform.position, 0.2f);
@@ -61,7 +71,7 @@ public class EnemyLineOfSight : MonoBehaviour
         foreach (var obj in Objects)
         {
             Gizmos.DrawSphere(obj.transform.position, 0.2f);
-        }
+        }*/
     }
 
     public bool IsInSight(GameObject obj)
