@@ -22,9 +22,9 @@ public class EnemyLineOfSight : MonoBehaviour
             return objects;
         }
     }
-    private List<GameObject> objects = new List<GameObject>();
+    public List<GameObject> objects = new List<GameObject>();
 
-    Collider[] colliders = new Collider[50];
+    public Collider[] colliders = new Collider[50];
 
     int count;
     float scanInterval;
@@ -53,7 +53,7 @@ public class EnemyLineOfSight : MonoBehaviour
 
         objects.Clear();
 
-        for (int i =0; i< count; i++)
+        for (int i = 0; i < count; i++)
         {
             GameObject obj = colliders[i].gameObject;
             if (IsInSight(obj))
@@ -61,17 +61,7 @@ public class EnemyLineOfSight : MonoBehaviour
                 objects.Add(obj);
             }
         }
-        /*
-        for (int i = 0; i < count; i++)
-        {
-            Gizmos.DrawSphere(colliders[i].transform.position, 0.2f);
-        }
-
-        Gizmos.color = Color.green;
-        foreach (var obj in Objects)
-        {
-            Gizmos.DrawSphere(obj.transform.position, 0.2f);
-        }*/
+        
     }
 
     public bool IsInSight(GameObject obj)
@@ -199,12 +189,39 @@ public class EnemyLineOfSight : MonoBehaviour
             Gizmos.color = meshColor;
             Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
         }
-
+        
         Gizmos.DrawWireSphere(transform.position, distance);
 
         for(int i = 0; i < count; i++)
         {
             Gizmos.DrawSphere(colliders[i].transform.position, 0.2f);
         }
+        
+        Gizmos.color = Color.green;
+        foreach (var obj in Objects)
+        {
+            Gizmos.DrawSphere(obj.transform.position, 0.2f);
+        }
+
+        
+    }
+    public int Filter(GameObject[] buffer, string layerName)
+    {
+        int layer = LayerMask.NameToLayer(layerName);
+        int count = 0;
+        foreach (var obj in Objects)
+        {
+            if (obj.layer == layer)
+            {
+                buffer[count++] = obj;
+            }
+
+            if (buffer.Length == count)
+            {
+                break;
+            }
+        }
+
+        return count;
     }
 }
