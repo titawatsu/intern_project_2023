@@ -57,7 +57,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.1
+    m_NearPlane: 0.15
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -143,7 +143,7 @@ Transform:
   m_GameObject: {fileID: 4443585554754177436}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: -0.00000028213}
   m_LocalPosition: {x: -0.60580945, y: -0.006787231, z: 2.5460844}
-  m_LocalScale: {x: 0.12802744, y: 0.073759824, z: -0.031425193}
+  m_LocalScale: {x: 0.12802744, y: 0.073759824, z: 0.03142519}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1766783412642782918}
@@ -355,7 +355,7 @@ Transform:
   m_GameObject: {fileID: 4443585554964906808}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: -0.00000028213}
   m_LocalPosition: {x: 0.59548706, y: -0.006787231, z: 2.5460844}
-  m_LocalScale: {x: 0.12802744, y: 0.073759824, z: -0.031425193}
+  m_LocalScale: {x: 0.12802744, y: 0.073759824, z: 0.03142519}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1766783412642782918}

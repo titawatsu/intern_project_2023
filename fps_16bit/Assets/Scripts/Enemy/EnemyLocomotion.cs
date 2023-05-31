@@ -35,10 +35,10 @@ public class EnemyLocomotion : MonoBehaviour
 
     private void Update()
     {
-        anim.SetFloat("Speed", agent.velocity.magnitude);
+        //anim.SetFloat("Speed", agent.velocity.magnitude);
 
-        if (!playerInSightRange) Patroling(); // if player not in range, baseman will go random by search walk point
-        if (playerInSightRange) ChasePlayer(); // if player in range, baseman will chase player
+        //if (!playerInSightRange) Patroling(); // if player not in range, baseman will go random by search walk point
+        //if (playerInSightRange) ChasePlayer(); // if player in range, baseman will chase player
     }
 
     private void CheckState()

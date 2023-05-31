@@ -16,10 +16,10 @@ namespace fps_16bit
         [SerializeField] private Transform Camera; // player camera
         [SerializeField] private Transform CameraRoot; // player camera position
 
-        [SerializeField] private float UpperLimit = -60f;
-        [SerializeField] private float BottomLimit = 30f;
-        [SerializeField] public float mouseSensitivity;
-        public const string mouseSens = "mouseSens";
+        [SerializeField] private float UpperLimit = -60f; // upper bound for camera
+        [SerializeField] private float BottomLimit = 30f; // bottom bound for camera
+        [SerializeField] public float mouseSensitivity; // declare mouse sensitivity
+        public const string mouseSens = "mouseSens"; // for contain mouse sensitivity on player preferences
         #endregion
 
         #region MOVE_ANIMATION
