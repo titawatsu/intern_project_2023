@@ -1,27 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using fps_16bit;
 
-public class ItemInventoryController : MonoBehaviour
+namespace fps_16bit
 {
-    Item item;
-
-    public void UseItem(Item item)
+    public class ItemInventoryController : MonoBehaviour
     {
-        switch (item.itemType)
+        Item item;
+
+        public void UseItem(Item item)
         {
-            case Item.ItemType.MedKit:
-                Debug.Log("Increase Health by" + item.value);
-                Player.instance.IncreaseHealth(item.value);
-                break;
-            case Item.ItemType.GasCan:
-                Player.instance.IncreaseGasAmount(item.value);
-                break;
-            case Item.ItemType.Battery:
-                break;
-            case Item.ItemType.Flashlight:
-                Player.instance.getFlashlight = true;
-                break;
+            switch (item.itemType)
+            {
+                case Item.ItemType.MedKit:
+                    Debug.Log("Increase Health by" + item.value);
+                    Player.instance.IncreaseHealth(item.value);
+                    break;
+                case Item.ItemType.GasCan:
+                    Player.instance.IncreaseGasAmount(item.value);
+                    break;
+                case Item.ItemType.Battery:
+                    break;
+                case Item.ItemType.Flashlight:
+                    Player.instance.getFlashlight = true;
+                    break;
+            }
         }
     }
 }

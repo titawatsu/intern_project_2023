@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6551128701017992750}
   - component: {fileID: 5693045890435959811}
   - component: {fileID: 718795457032967570}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3783005667591452949}
   - component: {fileID: 3783005667591452950}
   - component: {fileID: 3783005667591452951}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CheckPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 2902433683355893139}
   - component: {fileID: 6719803737060286796}
   - component: {fileID: 6719803737060286797}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: OuterFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 7962544051073206995}
   - component: {fileID: 7962544051073207020}
   - component: {fileID: 7962544051073207021}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Locker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

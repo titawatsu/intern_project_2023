@@ -9,8 +9,8 @@ namespace fps_16bit
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
-        //public PauseController pauseController;
-        //public GameObject GameOverUi;
+        public PauseController pauseController;
+        public GameObject GameOverUi;
 
         #region START_UPDATE
         private void Start()
@@ -29,8 +29,8 @@ namespace fps_16bit
         
         private void SetGameResume()
         {
-            //pauseController.ResumeGame(); //For making Time.timeScale = 1f;
-            //GameOverUi.SetActive(false);
+            pauseController.ResumeGame(); //For making Time.timeScale = 1f;
+            GameOverUi.SetActive(false);
         }
 
         public void LoadLevel(int levelIndex)
@@ -57,16 +57,26 @@ namespace fps_16bit
             return SceneManager.GetActiveScene().buildIndex;
         }
 
+        public void RestartLevel()
+        {
+            int currentSceneBuildIndex = GetCurrentSceneIndex();
+
+            SceneManager.LoadScene(currentSceneBuildIndex);
+            
+        }
+
         public void ProcessPlayerDeath()
         {
-            //GameOver();
+            GameOver();
         }
-        /*
+        
         private void GameOver()
         {
 
             Time.timeScale = 0f;
             PauseController.paused = true; // if use pauseController.paused = true;, it cannot be accessed with an instance reference; qualify it with a type name instead (PauseController)
+
+            Cursor.lockState = CursorLockMode.Confined;
 
             pauseController.bgSound.Pause();
 
@@ -74,7 +84,7 @@ namespace fps_16bit
             GameOverUi.SetActive(true);
 
         }
-        */
+        
     }
 }
 

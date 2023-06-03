@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,11 +26,13 @@ public class WayPoint : MonoBehaviour
 
         for (int i = 0; i < images.Length; i++)
         {
-            if (distances[i] <= fadeThreshold && fadeCoroutines[i] == null)
+            bool targetBehindPlayer = IsTargetBehindPlayer(targets[i].position, player.position);
+
+            if (distances[i] <= fadeThreshold && fadeCoroutines[i] == null && !targetBehindPlayer)
             {
                 fadeCoroutines[i] = StartCoroutine(FadeIn(i));
             }
-            else if (distances[i] > fadeThreshold && fadeCoroutines[i] != null)
+            else if ((distances[i] > fadeThreshold || targetBehindPlayer) && fadeCoroutines[i] != null)
             {
                 StopCoroutine(fadeCoroutines[i]);
                 fadeCoroutines[i] = null;
@@ -41,7 +41,16 @@ public class WayPoint : MonoBehaviour
 
             targetLocations[i] = Camera.main.WorldToScreenPoint(targets[i].position);
             images[i].transform.position = targetLocations[i];
+            images[i].transform.rotation = Quaternion.LookRotation(Vector3.forward, targetLocations[i] - Camera.main.WorldToScreenPoint(player.position));
         }
+    }
+
+    private bool IsTargetBehindPlayer(Vector3 targetPosition, Vector3 playerPosition)
+    {
+        Vector3 directionToTarget = targetPosition - playerPosition;
+        Vector3 playerForward = player.forward;
+
+        return Vector3.Dot(directionToTarget, playerForward) < 0f;
     }
 
     private void InitializeImages()

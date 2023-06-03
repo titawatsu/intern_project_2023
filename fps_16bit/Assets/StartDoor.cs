@@ -8,6 +8,7 @@ public class StartDoor : MonoBehaviour
     private bool playerInZone;                  //Check if the player is in the zone
 
     [SerializeField] private Animator doorAnim;
+    [SerializeField] private Collider doorCollider;
 
     private void Start()
     {
@@ -22,12 +23,14 @@ public class StartDoor : MonoBehaviour
     {
         playerInZone = true;
         doorAnim.SetBool("open", true);
+        doorCollider.enabled = false;
     }
 
     private void OnTriggerExit(Collider other)
     {
         playerInZone = false;
         doorAnim.SetBool("open", false);
+        doorCollider.enabled = true;
     }
 
 }

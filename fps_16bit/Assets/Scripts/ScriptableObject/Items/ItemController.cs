@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using fps_16bit;
 
-public class ItemController : MonoBehaviour
+namespace fps_16bit
 {
-    public Item item;
-
-    public ItemInventoryController itemInventoryController;
-
-    private void OnDestroy()
+    public class ItemController : MonoBehaviour
     {
-        itemInventoryController.UseItem(item);
+        public Item item;
+
+        public ItemInventoryController itemInventoryController;
+
+        private void OnDestroy()
+        {
+            itemInventoryController.UseItem(item);
+        }
     }
+
 }

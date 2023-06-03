@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using fps_16bit;
 
-public class ElevatorStartAnimation : MonoBehaviour
+namespace fps_16bit
 {
-    [SerializeField] private Animator elevatorAnim;
-    void Start()
+    public class ElevatorStartAnimation : MonoBehaviour
     {
-        elevatorAnim.SetBool("open", true);
-            
+        [SerializeField] private Animator elevatorAnim;
+        void Start()
+        {
+            elevatorAnim.SetBool("open", true);
+
+        }
     }
 }

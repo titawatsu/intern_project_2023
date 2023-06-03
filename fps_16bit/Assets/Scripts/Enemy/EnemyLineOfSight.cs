@@ -1,227 +1,109 @@
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using fps_16bit;
 
-public class EnemyLineOfSight : MonoBehaviour
+namespace fps_16bit
 {
+	#if UNITY_EDITOR
+	[CustomEditor(typeof(EnemyLineOfSight))]
+	public class LineOfSightEditor : Editor
+	{
+		void OnSceneGUI()
+		{
+			EnemyLineOfSight fow = (EnemyLineOfSight)target;
+			Handles.color = Color.white;
+			Handles.DrawWireArc(fow.transform.position, Vector3.up, Vector3.forward, 360, fow.viewRadius);
+			Vector3 viewAngleA = fow.DirFromAngle(-fow.viewAngle / 2, false);
+			Vector3 viewAngleB = fow.DirFromAngle(fow.viewAngle / 2, false);
 
-    public float distance = 10;
-    [SerializeField] private float angle = 30;
-    [SerializeField] private float height = 2;
-    private Color meshColor = Color.red;
+			Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleA * fow.viewRadius);
+			Handles.DrawLine(fow.transform.position, fow.transform.position + viewAngleB * fow.viewRadius);
 
-    public int scanFrequency = 30;
-    public LayerMask layers;
-    public LayerMask occlusionLayers;
+			Handles.color = Color.red;
+			foreach (Transform visibleTarget in fow.visibleTargets)
+			{
+				Handles.DrawLine(fow.transform.position, visibleTarget.position);
+			}
+		}
+	}
+	#endif
 
-    public List<GameObject> Objects
-    {
-        get
-        {
-            objects.RemoveAll(obj => !obj);
-            return objects;
-        }
-    }
-    public List<GameObject> objects = new List<GameObject>();
+	public class EnemyLineOfSight : MonoBehaviour
+	{
 
-    public Collider[] colliders = new Collider[50];
+		public float viewRadius;
+		[Range(0, 360)]
+		public float viewAngle;
 
-    int count;
-    float scanInterval;
-    float scanTimer;
+		public LayerMask targetMask;
+		public LayerMask occlusionMask;
 
-    Mesh mesh;
+		public bool playerVisible = false;
 
-    private void Start()
-    {
-        scanInterval = 1.0f / scanFrequency;
-    }
+		public List<Transform> visibleTargets = new List<Transform>();
 
-    private void Update()
-    {
-        scanTimer -= Time.deltaTime;
-        if(scanTimer < 0)
-        {
-            scanTimer += scanInterval;
-            Scan();
-        }
-    }
+		private void Start()
+		{
+			StartCoroutine("FindTargetsWithDelay", .1f);
 
-    private void Scan()
-    {
-        count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layers, QueryTriggerInteraction.Collide);
+		}
 
-        objects.Clear();
+		IEnumerator FindTargetsWithDelay(float delay)
+		{
+			while (true)
+			{
+				yield return new WaitForSeconds(delay);
+				FindVisibleTargets();
+			}
+		}
 
-        for (int i = 0; i < count; i++)
-        {
-            GameObject obj = colliders[i].gameObject;
-            if (IsInSight(obj))
-            {
-                objects.Add(obj);
-            }
-        }
-        
-    }
+		void FindVisibleTargets()
+		{
+			visibleTargets.Clear();
 
-    public bool IsInSight(GameObject obj)
-    {
+			playerVisible = false;
 
-        Vector3 origin = transform.position;
-        Vector3 dest = obj.transform.position;
-        Vector3 direction = dest - origin;
+			Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
-        if (direction.y < 0 || direction.y > height)
-        {
-            return false;
-        }
+			for (int i = 0; i < targetsInViewRadius.Length; i++)
+			{
+				Transform target = targetsInViewRadius[i].transform;
+				Vector3 dirToTarget = (target.position - transform.position).normalized;
+				if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+				{
+					float dstToTarget = Vector3.Distance(transform.position, target.position);
 
-        direction.y = 0;
-        float deltaAngle = Vector3.Angle(direction, transform.forward);
+					if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, occlusionMask))
+					{
+						visibleTargets.Add(target);
+					}
+				}
+			}
 
-        if (deltaAngle > angle)
-        {
-            return false;
-        }
+			foreach (Transform target in visibleTargets)
+			{
+				if (target.gameObject.GetComponent<Player>())
+				{
+					playerVisible = true;
+					break;
+				}
+			}
 
-        origin.y += height / 2;
-        dest.y = origin.y;
-        if (Physics.Linecast(origin, dest, occlusionLayers))
-        {
-            return false;
-        }
-        return true;
-    }
-
-    Mesh CreateWedgeMesh()
-    {
-        Mesh mesh = new Mesh();
-
-        int segments = 10;
-        int numTriangle = (segments * 4) + 2 + 2;
-        int numVertices = numTriangle * 3;
-
-        Vector3[] vertices = new Vector3[numVertices];
-        int[] triangles = new int[numVertices];
-
-        Vector3 bottomCenter = Vector3.zero;
-        Vector3 bottomLeft = Quaternion.Euler(0, -angle, 0) * Vector3.forward * distance;
-        Vector3 bottomRight = Quaternion.Euler(0, angle, 0) * Vector3.forward * distance;
-
-        Vector3 topCenter = bottomCenter + Vector3.up * height;
-        Vector3 topRight = bottomRight + Vector3.up * height;
-        Vector3 topLeft = bottomLeft + Vector3.up * height;
-
-        int vert = 0;
-
-        // Left vertice
-        vertices[vert++] = bottomCenter;
-        vertices[vert++] = bottomLeft;
-        vertices[vert++] = topLeft;
-
-        vertices[vert++] = topLeft;
-        vertices[vert++] = topCenter;
-        vertices[vert++] = bottomCenter;
-
-        // Right vertice
-        vertices[vert++] = bottomCenter;
-        vertices[vert++] = topCenter;
-        vertices[vert++] = topRight;
-
-        vertices[vert++] = topRight;
-        vertices[vert++] = bottomRight;
-        vertices[vert++] = bottomCenter;
-
-        float currentAngle = -angle;
-        float deltaAngle = (angle * 2) / segments;
-        for (int i = 0; i < segments; i++)
-        {
-            bottomLeft = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward * distance;
-            bottomRight = Quaternion.Euler(0, currentAngle + deltaAngle, 0) * Vector3.forward * distance;
-
-            topRight = bottomRight + Vector3.up * height;
-            topLeft = bottomLeft + Vector3.up * height;
-
-            currentAngle += deltaAngle;
-
-            // Far side
-            vertices[vert++] = bottomLeft;
-            vertices[vert++] = bottomRight;
-            vertices[vert++] = topRight;
-
-            vertices[vert++] = topRight;
-            vertices[vert++] = topLeft;
-            vertices[vert++] = bottomLeft;
-
-            // Top
-            vertices[vert++] = topCenter;
-            vertices[vert++] = topLeft;
-            vertices[vert++] = topRight;
-
-            // Bottom
-            vertices[vert++] = bottomCenter;
-            vertices[vert++] = bottomRight;
-            vertices[vert++] = bottomLeft;
-
-        }
+		}
 
 
-        for (int i = 0; i < numVertices ; i++)
-        {
-            triangles[i] = i; 
-        }
-        mesh.vertices = vertices;
-        mesh.triangles = triangles;
-        mesh.RecalculateNormals();
+		public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+		{
+			if (!angleIsGlobal)
+			{
+				angleInDegrees += transform.eulerAngles.y;
+			}
+			return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+		}
 
-        return mesh;
-    }
-
-    private void OnValidate()
-    {
-        mesh = CreateWedgeMesh();
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (mesh)
-        {
-            Gizmos.color = meshColor;
-            Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
-        }
-        
-        Gizmos.DrawWireSphere(transform.position, distance);
-
-        for(int i = 0; i < count; i++)
-        {
-            Gizmos.DrawSphere(colliders[i].transform.position, 0.2f);
-        }
-        
-        Gizmos.color = Color.green;
-        foreach (var obj in Objects)
-        {
-            Gizmos.DrawSphere(obj.transform.position, 0.2f);
-        }
-
-        
-    }
-    public int Filter(GameObject[] buffer, string layerName)
-    {
-        int layer = LayerMask.NameToLayer(layerName);
-        int count = 0;
-        foreach (var obj in Objects)
-        {
-            if (obj.layer == layer)
-            {
-                buffer[count++] = obj;
-            }
-
-            if (buffer.Length == count)
-            {
-                break;
-            }
-        }
-
-        return count;
-    }
+	}
 }

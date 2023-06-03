@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4443585554282197330}
   - component: {fileID: 4443585554282197331}
   - component: {fileID: 4443585554282197328}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 4443585554754177409}
   - component: {fileID: 4443585554754177438}
   - component: {fileID: 4443585554754177439}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 4443585554786652107}
   - component: {fileID: 4443585554786652104}
   - component: {fileID: 4443585554786652105}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 4443585554964906813}
   - component: {fileID: 4443585554964906810}
   - component: {fileID: 4443585554964906811}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 2765522014970906539}
   - component: {fileID: 2291900985190787883}
   - component: {fileID: 5819237680319383594}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Light_Pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}

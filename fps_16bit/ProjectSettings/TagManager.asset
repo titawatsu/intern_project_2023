@@ -19,7 +19,7 @@ TagManager:
   - Ground
   - Pickup
   - Weapon
-  - 
+  - Obstacle
   - Player
   - PlayerAttackRadius
   - Enemy

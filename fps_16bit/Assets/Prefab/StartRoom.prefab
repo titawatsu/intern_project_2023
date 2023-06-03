@@ -7874,6 +7874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnim: {fileID: 187678650649565328}
+  doorCollider: {fileID: 6303083552028046555}
 --- !u!1 &9008254361552544085
 GameObject:
   m_ObjectHideFlags: 0

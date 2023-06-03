@@ -212,7 +212,7 @@ namespace fps_16bit
         private void CheckGroundAndCollision()
         {
             if (!checkAnimator) return;
-
+            
             RaycastHit hitLower;
             if (Physics.Raycast(stepLowerRay.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
             {
@@ -243,8 +243,8 @@ namespace fps_16bit
                 {
                     playerRb.position -= new Vector3(0f, -stepDamp * Time.deltaTime, 0f);
                 }
+
             }
-            
             RaycastHit hitVectorDown;
             if (Physics.SphereCast(playerRb.worldCenterOfMass, checkGroundRadius, Vector3.down, out hitVectorDown, playerToGround + 0.1f, GroundCheck))
             {
