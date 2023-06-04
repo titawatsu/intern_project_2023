@@ -16,7 +16,7 @@ namespace fps_16bit
         public Player playerScript;
 
         public Vector3 walkPoint;
-        bool walkPointSet;
+        public bool walkPointSet;
         public float walkPointRange;
         private float attackDelay = 0.8f;
 
@@ -47,8 +47,8 @@ namespace fps_16bit
 
             anim.SetFloat("Speed", agent.velocity.magnitude);
 
-            if (!playerInSightRange) Patroling(); // if player not in range, baseman will go random by search walk point
-            if (playerInSightRange) ChasePlayer(); // if player in range, baseman will chase player
+            if (!playerInSightRange) Patroling(); // if player not in range, enemy will go random by search walk point
+            if (playerInSightRange) ChasePlayer(); // if player in range, enemy will chase player
 
         }
 
@@ -64,6 +64,12 @@ namespace fps_16bit
             //Walkpoint reached
             if (distanceToWalkPoint.magnitude < 5f)
                 walkPointSet = false;
+
+            if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
+            {
+                walkPointSet = false;
+            }
+
         }
         private void SearchWalkPoint()
         {
