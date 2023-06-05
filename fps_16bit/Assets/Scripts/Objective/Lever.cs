@@ -54,15 +54,16 @@ namespace fps_16bit
         private void OnTriggerEnter(Collider other)
         {
             playerInzone = true;
-            Debug.Log("In Zone");
+            
             leverText.enabled = true;
+            leverText.text = "Press 'E' to Pull Lever";
 
         }
 
         private void OnTriggerExit(Collider other)
         {
             playerInzone = false;
-            Debug.Log("Not In Zone");
+          
             leverText.enabled = false;
         }
 
@@ -88,6 +89,7 @@ namespace fps_16bit
                 {
                     anim.Play("Triggered");
                     StartCoroutine(onTurned());
+                    Debug.Log("Turning..");
                 }
                 else
                 {

@@ -13,8 +13,9 @@ public class DoorAiTrigger : MonoBehaviour
     {
         if (other.TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))
         {
-            
+            Debug.Log("Found Agent");
             AgentsInRange++;
+            Debug.Log("Add Agent");
             if (!Door.IsOpen)
             {
                 Door.Open(other.transform.position);
@@ -26,8 +27,9 @@ public class DoorAiTrigger : MonoBehaviour
     {
         if (other.TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))
         {
-            // if you do not want to automatically close doors, do not implement this method
+            // agent automatically close the door
             AgentsInRange--;
+            Debug.Log("Delete Agent");
             if (Door.IsOpen && AgentsInRange == 0)
             {
                 Door.Close();

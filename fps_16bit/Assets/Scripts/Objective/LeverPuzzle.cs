@@ -12,6 +12,8 @@ namespace fps_16bit
 
         bool[] bossCode;
 
+        public Animator doorAnim;
+
         private void Start()
         {
             bossCode = new bool[code.Length];
@@ -19,18 +21,12 @@ namespace fps_16bit
 
         void SendAns()
         {
-            /*
-            GameObject door = GameObject.Find("Door");
-
-            if (door != null)
-            {
-                
-                door.GetComponent<DoorOpenAnimation>().OpenDoor();
-            }*/
+            doorAnim.SetBool("open", true);
         }
 
         public void RecieveSignal(GameObject obj, bool state)
         {
+            Debug.Log("Check Signal");
             for (int i = 0; i < levers.Length; i++)
             {
                 if (obj == levers[i])
@@ -39,7 +35,9 @@ namespace fps_16bit
                     break;
                 }
             }
+            Debug.Log("....");
             Verificate();
+            Debug.Log("Verifing....");
         }
 
         public void Verificate()
@@ -51,6 +49,7 @@ namespace fps_16bit
                 if (bossCode[i] != code[i])
                 {
                     isRight = false;
+                    Debug.Log("Failed");
                     break;
                 }
 
@@ -58,10 +57,12 @@ namespace fps_16bit
 
             if (isRight)
             {
+                Debug.Log("Right!");
                 foreach (GameObject obj in levers)
                 {
                     obj.GetComponent<Lever>().canTurn = false;
                 }
+                Debug.Log("Yes");
                 SendAns();
             }
         }
