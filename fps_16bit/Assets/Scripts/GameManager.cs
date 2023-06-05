@@ -84,6 +84,19 @@ namespace fps_16bit
             GameOverUi.SetActive(true);
 
         }
+
+        public void EndGame()
+        {
+            Time.timeScale = 0f;
+            PauseController.paused = true; // if use pauseController.paused = true;, it cannot be accessed with an instance reference; qualify it with a type name instead (PauseController)
+
+            Cursor.lockState = CursorLockMode.Confined;
+
+            pauseController.bgSound.Pause();
+
+            Destroy(this.gameObject);
+            
+        }
         
     }
 }

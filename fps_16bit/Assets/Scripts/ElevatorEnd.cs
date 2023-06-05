@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 
-public class ElevatorGoal : MonoBehaviour
+namespace fps_16bit{ 
+public class ElevatorEnd : MonoBehaviour
 {
+    public GameObject EndUi;
     public Animator elevatorAnim;
     public bool playerInzone = false;
 
     private void Start()
     {
+        EndUi.SetActive(false);
         elevatorAnim = transform.parent.gameObject.GetComponent<Animator>();
     }
 
@@ -44,6 +47,9 @@ public class ElevatorGoal : MonoBehaviour
         yield return new WaitForSeconds(5);
         playerInzone = false;
 
-        
+        GameManager.instance.EndGame();
+        EndUi.SetActive(true);
     }
 }
+}
+
