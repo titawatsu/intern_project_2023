@@ -7,7 +7,8 @@ public class HelderObjScript : MonoBehaviour
 {
     [Header("InteractableInfo")]
     public float sphereCastRadius = 0.5f;
-    public int interactableLayerIndex;
+    //public int interactableLayerIndex;
+    public LayerMask heldMask;
     private Vector3 raycastPos;
     public GameObject lookObject;
     private ObjectHelder ObjectHelder;
@@ -23,7 +24,7 @@ public class HelderObjScript : MonoBehaviour
     [SerializeField] private float maxSpeed = 300f;
     [SerializeField] private float maxDistance = 10f;
     private float currentSpeed = 0f;
-    private float currentDist = 0f;
+    private float currentDistance = 0f;
 
     [Header("Rotation")]
     public float rotationSpeed = 100f;
@@ -35,20 +36,16 @@ public class HelderObjScript : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    private void Awake()
-    {
-        pickupAction.action.started += OnPickupActionStarted;
-        pickupAction.action.canceled += OnPickupActionCanceled;
-    }
-
     private void OnEnable()
     {
         pickupAction.action.Enable();
+        pickupAction.action.performed += OnPickupActionStarted;
     }
 
     private void OnDisable()
     {
         pickupAction.action.Disable();
+        pickupAction.action.performed -= OnPickupActionStarted;
     }
 
     private void OnPickupActionStarted(InputAction.CallbackContext context)
@@ -91,7 +88,7 @@ public class HelderObjScript : MonoBehaviour
         //Here we check if we're currently looking at an interactable object
         raycastPos = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
-        if (Physics.SphereCast(raycastPos, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, 1 << interactableLayerIndex))
+        if (Physics.SphereCast(raycastPos, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, heldMask)) //1 << interactableLayerIndex
         {
 
             lookObject = hit.collider.transform.root.gameObject;
@@ -108,8 +105,8 @@ public class HelderObjScript : MonoBehaviour
     {
         if (currentlyPickedUpObject != null)
         {
-            currentDist = Vector3.Distance(pickupParent.position, pickupRB.position);
-            currentSpeed = Mathf.SmoothStep(minSpeed, maxSpeed, currentDist / maxDistance);
+            currentDistance = Vector3.Distance(pickupParent.position, pickupRB.position);
+            currentSpeed = Mathf.SmoothStep(minSpeed, maxSpeed, currentDistance / maxDistance);
             currentSpeed *= Time.fixedDeltaTime;
             Vector3 direction = pickupParent.position - pickupRB.position;
             pickupRB.velocity = direction.normalized * currentSpeed;
@@ -127,7 +124,7 @@ public class HelderObjScript : MonoBehaviour
         pickupRB.constraints = RigidbodyConstraints.None;
         currentlyPickedUpObject = null;
         ObjectHelder.pickedUp = false;
-        currentDist = 0;
+        currentDistance = 0;
     }
 
     public void PickUpObject()

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 
+namespace fps_16bit
+{
+    
 public class ElevatorGoal : MonoBehaviour
 {
     public Animator elevatorAnim;
@@ -41,9 +44,20 @@ public class ElevatorGoal : MonoBehaviour
 
     IEnumerator GoalAnim()
     {
-        yield return new WaitForSeconds(5);
-        playerInzone = false;
+        yield return new WaitForSeconds(3);
 
-        
+        if (playerInzone)
+        {
+            elevatorAnim.SetBool("open", false);
+            StartCoroutine(NextScene());
+        }
     }
+
+    IEnumerator NextScene()
+    {
+        yield return new WaitForSeconds(2);
+        GameManager.instance.LoadNextLevel();
+    }
+}
+
 }

@@ -18,6 +18,8 @@ namespace fps_16bit
 
         public int gasAmount = 0;
 
+        public int bookAmount = 0;
+
         public bool getFlashlight = false;
 
         private void Start()
@@ -47,6 +49,11 @@ namespace fps_16bit
         public void IncreaseGasAmount(int value)
         {
             gasAmount += value;
+        }
+
+        public void IncreaseBook(int value)
+        {
+            bookAmount += value;
         }
 
         private IEnumerator LookAt(Transform Target)

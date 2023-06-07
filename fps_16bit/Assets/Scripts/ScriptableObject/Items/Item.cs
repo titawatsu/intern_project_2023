@@ -9,7 +9,8 @@ public class Item : ScriptableObject
         MedKit,
         GasCan,
         Battery,
-        Flashlight
+        Flashlight,
+        Book
     }
     
     public int id;

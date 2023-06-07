@@ -74,6 +74,7 @@ namespace fps_16bit
             if (playerInzone)
             {
                 elevatorAnim.SetBool("open", true);
+                generatorText.gameObject.SetActive(false);
             }
         }
 

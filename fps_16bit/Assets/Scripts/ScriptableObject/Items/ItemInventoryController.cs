@@ -25,6 +25,9 @@ namespace fps_16bit
                 case Item.ItemType.Flashlight:
                     Player.instance.getFlashlight = true;
                     break;
+                case Item.ItemType.Book:
+                    Player.instance.IncreaseBook(item.value);
+                    break;
             }
         }
     }
