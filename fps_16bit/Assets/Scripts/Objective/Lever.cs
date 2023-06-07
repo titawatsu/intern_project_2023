@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using fps_16bit;
+using TMPro;
 
 namespace fps_16bit
 {
@@ -14,7 +15,7 @@ namespace fps_16bit
         [SerializeField] private Animation anim;
         [SerializeField] private Collider leverCollider;
 
-        [SerializeField] private Text leverText;
+        [SerializeField] private TMP_Text leverText;
 
         public GameObject bulb;
 

@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 using fps_16bit;
 
 namespace fps_16bit
 {
     public class GeneratorTrigger : MonoBehaviour
     {
-        public Text generatorText;
+        public TMP_Text generatorText;
 
         public int gasAmountPlayer;
 
@@ -44,7 +45,7 @@ namespace fps_16bit
 
             gasAmountPlayer = Player.instance.gasAmount;
 
-            generatorText.GetComponent<Text>().text = "Jerry Can " + gasAmountPlayer + "/" + gasAmountNeed;
+            generatorText.text = "Jerry Can " + gasAmountPlayer + "/" + gasAmountNeed;
 
             if (gasAmountPlayer >= gasAmountNeed)
             {
