@@ -1,6 +1,7 @@
 # intern_project_2023
 for internship program semester 03/2022
 
+Game Dcumentary: https://docs.google.com/document/d/1PQDEtP-1lkvrTZVHNV5JexIymQGAPNFIUac0dIcytxs/edit?pli=1
 
 revamp level 1 and add first aid item
 , and checking remaining bug.
