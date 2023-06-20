@@ -41,7 +41,8 @@ public class WayPoint : MonoBehaviour
 
             targetLocations[i] = Camera.main.WorldToScreenPoint(targets[i].position);
             images[i].transform.position = targetLocations[i];
-            images[i].transform.rotation = Quaternion.LookRotation(Vector3.forward, targetLocations[i] - Camera.main.WorldToScreenPoint(player.position));
+            images[i].transform.LookAt(Camera.main.transform);
+            images[i].transform.rotation = Quaternion.Euler(0f, 0f, images[i].transform.rotation.eulerAngles.z);
         }
     }
 

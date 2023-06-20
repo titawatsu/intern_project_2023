@@ -77,7 +77,7 @@ public class DoorManager : MonoBehaviour
 
     private void Update()
     {
-        /*
+        
         if (playerInZone)
         {
             if (doorState == DoorState.Opened)
@@ -96,22 +96,7 @@ public class DoorManager : MonoBehaviour
                 doorCollider.enabled = true;
             }
         }
-        */
-        if (doorState == DoorState.Opened)
-        {
-            txtToDisplay.GetComponent<Text>().text = "Press 'E' to Close";
-            doorCollider.enabled = false;
-        }
-        else if (doorState == DoorState.Closed || gotKey)
-        {
-            txtToDisplay.GetComponent<Text>().text = "Press 'E' to Open";
-            doorCollider.enabled = true;
-        }
-        else if (doorState == DoorState.Jammed)
-        {
-            txtToDisplay.GetComponent<Text>().text = "Needs Key";
-            doorCollider.enabled = true;
-        }
+        
     }
     
     void DoorInteractHandle(InputAction.CallbackContext context)

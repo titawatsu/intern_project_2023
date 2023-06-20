@@ -19,8 +19,8 @@ namespace fps_16bit
 
         public GameObject bulb;
 
-        [HideInInspector] public bool turned = false;
-        [HideInInspector] public bool canTurn = true;
+        public bool turned = false;
+        public bool canTurn = true;
 
         
         private bool playerInzone;

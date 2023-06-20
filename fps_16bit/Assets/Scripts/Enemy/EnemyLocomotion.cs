@@ -87,8 +87,12 @@ namespace fps_16bit
         private void ChasePlayer() // go to player's position when player in sight
         {
             agent.speed = 5.0f;
-            agent.SetDestination(player.position);
 
+            for (int i = 0; i < 10; i++)
+            {
+                agent.SetDestination(player.position);
+            }
+            
         }
 
         private void OnCollisionEnter(Collision collision)

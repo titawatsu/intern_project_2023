@@ -10,7 +10,7 @@ namespace fps_16bit
         public GameObject[] levers;
         public bool[] code;
 
-        bool[] bossCode;
+        public bool[] bossCode;
 
         public Animator doorAnim;
 
@@ -26,7 +26,6 @@ namespace fps_16bit
 
         public void RecieveSignal(GameObject obj, bool state)
         {
-            Debug.Log("Check Signal");
             for (int i = 0; i < levers.Length; i++)
             {
                 if (obj == levers[i])
@@ -35,13 +34,12 @@ namespace fps_16bit
                     break;
                 }
             }
-            Debug.Log("....");
             Verificate();
-            Debug.Log("Verifing....");
         }
 
         public void Verificate()
         {
+
             bool isRight = true;
 
             for (int i = 0; i < code.Length; i++)
@@ -49,7 +47,6 @@ namespace fps_16bit
                 if (bossCode[i] != code[i])
                 {
                     isRight = false;
-                    Debug.Log("Failed");
                     break;
                 }
 
@@ -65,6 +62,7 @@ namespace fps_16bit
                 Debug.Log("Yes");
                 SendAns();
             }
+            Debug.Log("Right = " + isRight);
         }
     }
 }

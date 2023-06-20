@@ -263,7 +263,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 0b3142a9c8bf8954686b51ab622e64eb, type: 3}
 --- !u!1 &20956153 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4518926216316857160, guid: 0b3142a9c8bf8954686b51ab622e64eb,
+  m_CorrespondingSourceObject: {fileID: 3636404507971345290, guid: 0b3142a9c8bf8954686b51ab622e64eb,
     type: 3}
   m_PrefabInstance: {fileID: 20956152}
   m_PrefabAsset: {fileID: 0}
@@ -1070,7 +1070,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36300
+  m_Name: pb_Mesh43302
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3377,7 +3377,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36416
+  m_Name: pb_Mesh43418
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6574,8 +6574,13 @@ PrefabInstance:
       objectReference: {fileID: 637859047}
     - target: {fileID: 6441377066574234937, guid: a87f46d101046a140803e7c572a47efa,
         type: 3}
+      propertyPath: m_Range
+      value: 37.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441377066574234937, guid: a87f46d101046a140803e7c572a47efa,
+        type: 3}
       propertyPath: m_Intensity
-      value: 106.99
+      value: 63.3
       objectReference: {fileID: 0}
     - target: {fileID: 7162618367765846139, guid: a87f46d101046a140803e7c572a47efa,
         type: 3}
@@ -8205,7 +8210,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 0b3142a9c8bf8954686b51ab622e64eb, type: 3}
 --- !u!1 &962155983 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4518926216316857160, guid: 0b3142a9c8bf8954686b51ab622e64eb,
+  m_CorrespondingSourceObject: {fileID: 3636404507971345290, guid: 0b3142a9c8bf8954686b51ab622e64eb,
     type: 3}
   m_PrefabInstance: {fileID: 962155982}
   m_PrefabAsset: {fileID: 0}
@@ -10043,7 +10048,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 0b3142a9c8bf8954686b51ab622e64eb, type: 3}
 --- !u!1 &1109362335 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4518926216316857160, guid: 0b3142a9c8bf8954686b51ab622e64eb,
+  m_CorrespondingSourceObject: {fileID: 3636404507971345290, guid: 0b3142a9c8bf8954686b51ab622e64eb,
     type: 3}
   m_PrefabInstance: {fileID: 1109362334}
   m_PrefabAsset: {fileID: 0}
@@ -15417,6 +15422,7 @@ MonoBehaviour:
   - {fileID: 1109362335}
   - {fileID: 962155983}
   code: 01010101
+  bossCode: 
   doorAnim: {fileID: 717124455}
 --- !u!43 &1414164071
 Mesh:
@@ -22352,7 +22358,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 0b3142a9c8bf8954686b51ab622e64eb, type: 3}
 --- !u!1 &3636404508653654121 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4518926216316857160, guid: 0b3142a9c8bf8954686b51ab622e64eb,
+  m_CorrespondingSourceObject: {fileID: 3636404507971345290, guid: 0b3142a9c8bf8954686b51ab622e64eb,
     type: 3}
   m_PrefabInstance: {fileID: 3636404508653654120}
   m_PrefabAsset: {fileID: 0}
